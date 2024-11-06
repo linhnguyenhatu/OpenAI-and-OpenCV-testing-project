@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Chat Website</title>
+      <link rel="icon" 
+      type="image/png" 
+      href="https://cdn.discordapp.com/attachments/959644048841375787/1128258611605413959/Modern_Square_Typographic_Fashion_Brand_Logo.png">
+      <style>
+          .logo{
+              width :190px;
+          }
+          body {
+            font-family: Colfax,colfax-web,Proxima Nova,Open Sans,Gill Sans MT,Gill Sans,Corbel,Arial,sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://cdn.discordapp.com/attachments/959644048841375787/1128275858688315392/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjg4Mi1zYXNpLTEzLmpwZw_auto_x2_toned.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position : center;
+            position : relative;
+
+          }
+          
+          .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0);
+          }
+          
+          .frame {
+            width: 88vh;
+            height: 66vh;
+            position: fixed;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position:absolute;
+          }
+          
+          .box {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(86, 83, 83, 0.04);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .body {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            border: 8px solid white;
+          }
+          
+          .button {
+            max-width:700px;
+            padding: 10px;
+            display:flex;
+            margin: 30px 0px;
+            margin-left: 100px;
+            justify-content: center;
+          }
+          
+
+          .noidungchinh{
+            color: white;
+            position: absolute;
+            top:5%;
+            left: 27%;
+            font-size: 50px;
+            font-weight:900;
+          }
+        
+          .noidungphu{
+            color: lightblue;
+            
+          }
+
+          .button button {
+            font-family: Colfax,colfax-web,Proxima Nova,Open Sans,Gill Sans MT,Gill Sans,Corbel,Arial,sans-serif;
+            margin: 0px;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            font-size: 19px;
+            font-weight: 700;
+          }
+          .button button:hover {
+            background-color: gray;
+          }
+
+          .fadein{
+            animation: fadeIn 2s ;
+          }
+
+          @keyframes fadeIn {
+            0%{
+                opacity:0 ;
+            }
+            100%{
+                opacity: 1;
+            }
+          }
+          .interpretation {
+            color: white;
+            font-size: 40px;
+            position: absolute;
+            font-family: Colfax, colfax-web, Proxima Nova, Open Sans, Gill Sans MT, Gill Sans, Corbel, Arial, sans-serif;
+            text-align: center;
+            font-weight: 500;
+          }
+      </style>
+    </head>
+    <body>
+      <div>
+        <a href = "http://127.0.0.1:5000"><image src="https://cdn.discordapp.com/attachments/959644048841375787/1127480445110591498/bot.png" alt="logo" class = "logo"></a>
+      </div>
+      <div class = "fadein order">
+          <h1  class="noidungchinh">Computer Vision <span class = "noidungphu">open the eyes of machines</span></h1>
+      </div>
+      <div class="container fadein">
+          <div class="frame">
+            <div class="box">
+                <div class="body">
+                  {% if result != None %}
+                    <div class="interpretation">
+                      <p>{{result}}</p>
+                    </div>
+                  {% endif %}
+                  </div>
+                  <form action ='/vision' method="POST" >
+                      <div class="button">
+                          <button type="submit" name="button_start" value="started" style="margin-right: 50px">Nhận dạng bàn tay</button>
+                          <button type="submit" name="button_morse_start" value="start">Dịch mã Morse</button>
+                      </div>
+                  </form>
+                </div>
+            </div>
+          </div>
+      </div>
+    </body>
+</html>
